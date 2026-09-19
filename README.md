@@ -162,6 +162,14 @@ Medi-Meet/
 
 ---
 
+## 👨‍💻 Author
+
+**Himanshu Singh Yadav**
+- GitHub: [@Himanshusinghyadavup61](https://github.com/Himanshusinghyadavup61)
+
+---
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
