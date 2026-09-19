@@ -105,7 +105,7 @@ export async function getAIResponse(userMessage, chatHistory = []) {
           "Authorization": `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: process.env.GROQ_MODEL || "qwen/qwen3.8-27b",
           messages,
           temperature: 0.7,
           max_tokens: 512,
