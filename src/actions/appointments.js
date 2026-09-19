@@ -12,18 +12,37 @@ import { Auth } from "@vonage/auth";
 import fs from "fs";
 import path from "path";
 
-const privateKey = fs.readFileSync(
-  path.join(process.cwd(), "src/lib/private.key"),
-  "utf8"
-);
+let privateKey = process.env.VONAGE_PRIVATE_KEY;
 
-const credentials = new Auth({
-  applicationId: process.env.VONAGE_APPLICATION_ID,
-  privateKey: privateKey,
-});
+if (!privateKey) {
+  try {
+    const keyPath = path.join(process.cwd(), "src/lib/private.key");
+    if (fs.existsSync(keyPath)) {
+      privateKey = fs.readFileSync(keyPath, "utf8");
+    }
+  } catch (err) {
+    console.warn("Could not load local private.key:", err.message);
+  }
+}
 
-const options = {};
-const vonage = new Vonage(credentials, options);
+if (privateKey && privateKey.includes("\\n")) {
+  privateKey = privateKey.replace(/\\n/g, "\n");
+}
+
+let credentials;
+let vonage;
+
+try {
+  if (process.env.VONAGE_APPLICATION_ID && privateKey) {
+    credentials = new Auth({
+      applicationId: process.env.VONAGE_APPLICATION_ID,
+      privateKey: privateKey,
+    });
+    vonage = new Vonage(credentials, {});
+  }
+} catch (err) {
+  console.warn("Vonage initialization error:", err.message);
+}
 
 /**
  * Book a new appointment with a doctor
