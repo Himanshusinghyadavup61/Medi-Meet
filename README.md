@@ -1,5 +1,9 @@
 # 🩺 Medi-Meet — Next-Gen Telemedicine & Doctor Consultation Platform
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-medi--meet--rust.vercel.app-0070f3?style=for-the-badge&logo=vercel&logoColor=white)](https://medi-meet-rust.vercel.app/)
+
+> 🌐 **Live Demo:** [https://medi-meet-rust.vercel.app/](https://medi-meet-rust.vercel.app/)
+
 Medi-Meet is a modern, full-stack healthcare web application that connects patients with verified medical specialists. It features instant appointment booking, secure in-browser HD video consultations, an AI-powered medical assistant, and a credit-based subscription billing system.
 
 ---
@@ -36,7 +40,7 @@ Medi-Meet is a modern, full-stack healthcare web application that connects patie
 - **Database & ORM:** [PostgreSQL (Neon Serverless)](https://neon.tech/) with [Prisma ORM](https://www.prisma.io/)
 - **Video Conferencing:** [Vonage Video API (OpenTok)](https://www.vonage.com/communications-apis/video/)
 - **AI / LLM:** [Groq Cloud API](https://groq.com/)
-- **Deployment:** Vercel
+- **Deployment:** [Vercel](https://medi-meet-rust.vercel.app/)
 
 ---
 
